@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hello! | Coffee</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #FFF2D8; /* Light Cream background */
+      color: #113946; /* Deep Navy Blue text */
+    }
+    nav {
+      background-color: #BCA37F; /* Earthy Brown navbar */
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1rem 1.5rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    nav .logo {
+      display: flex;
+      align-items: center;
+    }
+    nav .logo img {
+      height: 40px;
+      width: auto;
+      max-width: 150px;
+      object-fit: contain;
+      margin-right: 0.75rem;
+    }
+    nav .logo span {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: white;
+    }
+    nav a {
+      margin-left: 1rem;
+      color: white;
+      text-decoration: none;
+    }
+    nav a:hover {
+      color: #113946; /* Warm Beige hover effect */
+    }
+    nav a.active{
+      font-weight: bold;
+      color: #1c4e5f;
+    }
+    .hero-section {
+      padding: 7rem 1.5rem 4rem;
+      text-align: center;
+      background-image: url('front.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+    .hero-section h1 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      padding: 1.5rem 2rem;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+      background-color: rgba(17, 57, 70, 0.8); /* Deep Navy Blue semi-transparent background */
+    }
+    .hero-section p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: #10303b; /* Warm Beige text */
+    }
+    .hero-section .cta-button {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: #113946; /* Deep Navy Blue button */
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .hero-section .cta-button:hover {
+      background-color: #0E2F3A; /* Slightly darker Deep Navy Blue on hover */
+    }
+    .features-section {
+      background-color: #EAD7BB; /* Warm Beige background */
+      padding: 4rem 1.5rem;
+      text-align: center;
+    }
+    .features-section h2 {
+      font-size: 2rem;
+      color: #113946; /* Deep Navy Blue text */
+      margin-bottom: 2rem;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      background-color: #BCA37F; /* Earthy Brown card background */
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+    .feature-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+    .feature-card p {
+      color: #FFF2D8; /* Light Cream text */
+    }
+    footer {
+      background: #BCA37F; /* Earthy Brown footer */
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <img src="giki.png" alt="giki Logo">
+      <span>giki</span>
+    </div>
+    <div>
+      <a href="index.html" class="active">Home</a>
+      <a href="coffee.html">Coffee</a>
+      <a href="pastries.html">Pastries & Breads</a>
+      <a href="contacts.html">Contacts</a>
+    </div>
+  </nav>
+
+  <section class="hero-section">
+    <h1 id="welcome-text">Good Morning!</h1>
+    <p>Your cozy online coffee spot — brewed to perfection</p>
+    <a href="coffee.html" class="cta-button">Explore Our Coffee</a>
+  </section>
+
+  <section class="features-section">
+    <h2>Our Offerings</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Signature Brews</h3>
+        <p>Rich, bold, and full of flavor. Handpicked beans for every mood.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Sweet Pastries</h3>
+        <p>Perfect pairings for your drink — freshly baked every day.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Fast Delivery</h3>
+        <p>Get your favorites delivered straight to your door.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Seasonal Specials</h3>
+        <p>New flavors each season to surprise your taste buds.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 giki. All rights reserved.
+  </footer>
+
+  <script>
+    // Function to handle the greeting
+    function getGreeting() {
+      const currentTime = new Date();
+      const hours = currentTime.getHours();
+      let greeting;
+
+      if (hours >= 5 && hours < 12) {
+        greeting = 'Good Morning';
+      } else if (hours >= 12 && hours < 17) {
+        greeting = 'Good Afternoon';
+      } else {
+        greeting = 'Good Evening';
+      }
+
+      const name = prompt("Please enter your name:");
+      if (name && name.trim() !== "") {
+        document.getElementById('welcome-text').textContent = `${greeting}, ${name}!`;
+      } else {
+        document.getElementById('welcome-text').textContent = `${greeting}, welcome to giki`;
+      }
+    }
+
+    // Call the function immediately after the page loads
+    window.onload = getGreeting;
+  </script>
+</body>
+</html>
+
+
+

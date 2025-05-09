@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coffee Menu | giki</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #FFF2D8; /* Light cream */
+      color: #113946; /* Deep navy blue */
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding-top: 80px;
+    }
+    nav {
+      background-color: #BCA37F; /* Warm taupe */
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+    nav .logo {
+      display: flex;
+      align-items: center;
+    }
+    nav .logo img {
+      height: 40px;
+      width: auto;
+      max-width: 150px;
+      object-fit: contain;
+      margin-right: 0.75rem;
+    }
+    nav .logo span {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: white;
+    }
+    nav a {
+      margin-left: 1rem;
+      color: white;
+      text-decoration: none;
+    }
+    nav a:hover {
+      color: #113946; /* Soft beige */
+    }
+   
+      nav a.active{
+      font-weight: bold;
+      color: #1c4e5f;
+    } 
+    
+    .menu-section {
+      padding: 2.5rem 1.5rem;
+    }
+    .menu-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-weight: bold;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    @media (min-width: 640px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .card {
+      background: #EAD7BB; /* Soft beige */
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+    }
+    .card h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    .card p {
+      color: #113946; /* Deep navy blue */
+      margin: 0.5rem 0;
+    }
+    .card span {
+      color: #BCA37F; /* Warm taupe */
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .card button {
+      background: #113946; /* Deep navy blue */
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .card button:hover {
+      background: #113946 /* Warm taupe */
+    }
+    footer {
+      background: #BCA37F; /* Warm taupe */
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">
+      <img src="giki.png" alt="giki Logo">
+      <span>giki</span>
+    </div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="coffee.html" class="active">Coffee</a>
+      <a href="pastries.html">Pastries & Breads</a>
+      <a href="contacts.html">Contacts</a>
+    </div>
+  </nav>
+
+  <!-- Coffee Menu Section -->
+  <section class="menu-section">
+    <h1 class="menu-title">Our Coffee Selection</h1>
+
+    <div class="grid">
+      <div class="card">
+        <img src="latte.jpg" alt="Latte">
+        <div>
+          <h2>Latte</h2>
+          <p>Espresso with steamed milk and light foam.</p>
+          <span>₱220.00</span>
+        </div>
+        <button onclick="addToCart('Latte', 220)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="americano.jpg" alt="Americano">
+        <div>
+          <h2>Americano</h2>
+          <p>Rich espresso diluted with hot water.</p>
+          <span>₱200.00</span>
+        </div>
+        <button onclick="addToCart('Americano', 200)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="mocha.jpg" alt="Mocha">
+        <div>
+          <h2>Mocha</h2>
+          <p>Chocolate, espresso, and steamed milk combo.</p>
+          <span>₱250.00</span>
+        </div>
+        <button onclick="addToCart('Mocha', 250)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="cappucino.jpg" alt="Cappuccino">
+        <div>
+          <h2>Cappuccino</h2>
+          <p>Espresso, steamed milk, and thick foam.</p>
+          <span>₱230.00</span>
+        </div>
+        <button onclick="addToCart('Cappuccino', 230)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="macchiato.jpg" alt="Macchiato">
+        <div>
+          <h2>Macchiato</h2>
+          <p>Espresso topped with a dollop of milk foam.</p>
+          <span>₱210.00</span>
+        </div>
+        <button onclick="addToCart('Macchiato', 210)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="coldbrew.jpg" alt="Cold Brew">
+        <div>
+          <h2>Cold Brew</h2>
+          <p>Smooth cold-steeped coffee, served chilled.</p>
+          <span>₱240.00</span>
+        </div>
+        <button onclick="addToCart('Cold Brew', 240)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 giki. All rights reserved.
+  </footer>
+
+  <script>
+    function addToCart(item, price) {
+      alert(item + " (₱" + price.toFixed(2) + ") added to cart!");
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pastries Menu | giki</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #FFF2D8;
+      color: #113946;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding-top: 80px;
+    }
+    nav {
+      background-color: #BCA37F;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+    nav .logo {
+      display: flex;
+      align-items: center;
+    }
+    nav .logo img {
+      height: 40px;
+      width: auto;
+      max-width: 150px;
+      object-fit: contain;
+      margin-right: 0.75rem;
+    }
+    nav .logo span {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: white;
+    }
+    nav a {
+      margin-left: 1rem;
+      color: white;
+      text-decoration: none;
+    }
+    nav a:hover {
+      color: #113946;
+    }
+    nav a.active {
+      font-weight: bold;
+      color: #1c4e5f;
+    }
+    .menu-section {
+      padding: 2.5rem 1.5rem;
+    }
+    .menu-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-weight: bold;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    @media (min-width: 640px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .card {
+      background: #EAD7BB;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+    }
+    .card h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    .card p {
+      color: #113946;
+      margin: 0.5rem 0;
+    }
+    .card span {
+      color: #BCA37F;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .card button {
+      background: #113946;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .card button:hover {
+      background: #0d2e3a;
+    }
+    footer {
+      background: #BCA37F;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">
+      <img src="giki.png" alt="giki Logo">
+      <span>giki</span>
+    </div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="coffee.html">Coffee</a>
+      <a href="pastries.html" class="active">Pastries & Bread</a>
+      <a href="contacts.html">Contacts</a>
+    </div>
+  </nav>
+
+  <!-- Pastries Menu Section -->
+  <section class="menu-section">
+    <h1 class="menu-title">Our Pastry & Bread Selection</h1>
+
+    <div class="grid">
+      <!-- Classic Pastries -->
+      <div class="card">
+        <img src="croissant.jpg" alt="Croissant">
+        <div>
+          <h2>Croissant</h2>
+          <p>Flaky, buttery French classic.</p>
+          <span>₱120.00</span>
+        </div>
+        <button onclick="addToCart('Croissant', 120)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="danish.jpg" alt="Fruit Danish">
+        <div>
+          <h2>Fruit Danish</h2>
+          <p>Sweet pastry with fruity filling.</p>
+          <span>₱135.00</span>
+        </div>
+        <button onclick="addToCart('Fruit Danish', 135)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="muffin.jpg" alt="Blueberry Muffin">
+        <div>
+          <h2>Blueberry Muffin</h2>
+          <p>Soft muffin bursting with blueberries.</p>
+          <span>₱110.00</span>
+        </div>
+        <button onclick="addToCart('Blueberry Muffin', 110)">Add to Cart</button>
+      </div>
+
+      <!-- Filipino Breads -->
+      <div class="card">
+        <img src="ensaymada.jpg" alt="Ensaymada">
+        <div>
+          <h2>Ensaymada</h2>
+          <p>Fluffy bread with butter, sugar, and cheese.</p>
+          <span>₱45.00</span>
+        </div>
+        <button onclick="addToCart('Ensaymada', 45)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="pandesal.jpg" alt="Pandesal">
+        <div>
+          <h2>Pandesal</h2>
+          <p>Soft, lightly sweet Filipino roll.</p>
+          <span>₱5.00</span>
+        </div>
+        <button onclick="addToCart('Pandesal', 5)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="spanishbread.jpg" alt="Spanish Bread">
+        <div>
+          <h2>Spanish Bread</h2>
+          <p>Soft bread rolled with buttery sugar filling.</p>
+          <span>₱20.00</span>
+        </div>
+        <button onclick="addToCart('Spanish Bread', 20)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="hopia.jpg" alt="Hopia">
+        <div>
+          <h2>Hopia</h2>
+          <p>Flaky pastry filled with mung bean or ube.</p>
+          <span>₱18.00</span>
+        </div>
+        <button onclick="addToCart('Hopia', 18)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="monay.jpg" alt="Monay">
+        <div>
+          <h2>Monay</h2>
+          <p>Dense and chewy traditional Filipino bread.</p>
+          <span>₱12.00</span>
+        </div>
+        <button onclick="addToCart('Monay', 12)">Add to Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="mamon.jpg" alt="Mamon">
+        <div>
+          <h2>Mamon</h2>
+          <p>Soft and airy sponge cake.</p>
+          <span>₱30.00</span>
+        </div>
+        <button onclick="addToCart('Mamon', 30)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 giki. All rights reserved.
+  </footer>
+
+  <script>
+    function addToCart(item, price) {
+      alert(item + " (₱" + price.toFixed(2) + ") added to cart!");
+    }
+  </script>
+</body>
+</html>
